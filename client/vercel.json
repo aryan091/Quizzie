@@ -1,0 +1,31 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "src/**/*",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "build"
+        }
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/app/:path*",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/api/v1/quiz/view-quiz/:quizId",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/api/v1/poll/view-poll/:pollId",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/:path*",
+        "destination": "/index.html"
+      }
+    ]
+  }
+  

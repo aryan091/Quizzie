@@ -55,7 +55,14 @@ const Home = () => {
 
   if(loading){
     return (
-      <div className="loading-spinner" >
+
+    )
+  }
+
+  return (
+    <div>
+      {loading ? 
+      <>      <div className="loading-spinner" >
       <BounceLoader
         color={"#ffffff"}
         loading={loading}
@@ -65,15 +72,18 @@ const Home = () => {
       />
     </div>
 
-    )
-  }
-
-  return (
-    <div>
-      <div className='login-sign-up-container'>
+      
+      </>
+      
+    :
+    
+    <>
+          <div className='login-sign-up-container'>
         {isSignUp && <SignUp handleSignUpSuccess={handleSignUpSuccess} clickLogin={clickLogin} clickSignUp={clickSignUp} />}
         {isLogin && <Login clickLogin={clickLogin} clickSignUp={clickSignUp} />}
       </div>
+
+    </>}
     </div>
   );
 };

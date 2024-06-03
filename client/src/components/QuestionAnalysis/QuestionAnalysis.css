@@ -1,0 +1,53 @@
+/* styles.css */
+
+.question-analysis-container {
+    border-bottom: 1px solid #d1d5db;
+    padding-top: 1rem/* 16px */;
+    padding-bottom: 1rem/* 16px */;
+    width: 828px;
+    height: 10rem/* 160px */;
+    margin-left: 4rem/* 64px */;
+    margin-right: 4rem/* 64px */;
+    margin-bottom: 1.5rem/* 24px */;
+
+  }
+  
+  .question-analysis-title {
+    font-size: 1.5rem/* 24px */;
+    font-weight: 600;
+    margin-bottom: 1rem/* 16px */;
+    text-align: left;
+  }
+  
+  .question-analysis-stats {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .attempted-stat,
+  .correct-stat,
+  .incorrect-stat {
+    background-color: #ffffff;
+    text-align: center;
+    width: 16rem/* 256px */;
+    height: 5rem/* 80px */;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .attempted-count,
+  .correct-count,
+  .incorrect-count {
+    font-size: 1.875rem/* 30px */;
+    font-weight: bold;
+  }
+  
+  .attempted-text,
+  .correct-text,
+  .incorrect-text {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: #6b7280;
+  }
+  

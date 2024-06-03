@@ -1,0 +1,61 @@
+/* styles.css */
+
+/* Styles for the quiz completion container */
+.quiz-completion-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Minimum height of the screen */
+    background-color: #041325;
+  }
+  
+  .quiz-completion-content {
+    background-color: #ffffff; /* bg-white */
+    padding: 1.5rem/* 24px */;
+    border-radius: 0.5rem/* 8px */;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* shadow-lg */
+    width: 1040px; /* w-[1040px] */
+    height: 600px; /* h-[560px] */
+    text-align: center;
+  }
+  
+  /* Styles for the quiz completion title */
+  .quiz-completion-title {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: bold; /* font-bold */
+    margin-bottom: 1rem; /* mb-4 */
+  }
+  
+  /* Styles for the quiz completion trophy image */
+  .quiz-completion-trophy {
+    display: block; /* Ensures the image is centered */
+    margin-left: auto;
+    margin-right: auto;  
+    margin-bottom: 1rem/* 16px */;
+  }
+
+  /* Styles for the quiz completion score */
+  .quiz-completion-score {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: bold; /* font-bold */
+  }
+  
+  /* Styles for the quiz completion score value */
+  .quiz-completion-score-value {
+    color: #48bb78; /* text-green-500 */
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: bold; /* font-bold */
+  }
+  
+  .quiz-completion-title{
+    font-size: 2.25rem/* 36px */;
+    font-weight: 700;
+    margin-bottom: 1rem/* 16px */;
+
+  }
+  @media screen and (max-width: 585px){
+    .quiz-completion-content {
+      width: 100vw;
+      height: 100vh;
+    }
+  }

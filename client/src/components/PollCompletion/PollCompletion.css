@@ -1,0 +1,58 @@
+/* ThankYou.css */
+
+.thank-you-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #041325;
+  }
+  
+  .thank-you-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem; /* p-6 */
+    background-color: #ffffff; /* bg-white */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    width: 1040px; /* w-[1040px] */
+    height: 600px; /* h-[560px] */
+    text-align: center;
+  }
+  
+  .thank-you-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* gap-8 */
+  }
+  
+  .thank-you-title {
+    font-size: 4.5rem; /* text-7xl */
+    font-weight: 700; /* font-bold */
+    margin-bottom: 1rem; /* mb-4 for the first title */
+  }
+  
+  .thank-you-title:not(:first-child) {
+    margin-bottom: 0; /* Reset margin for subsequent titles */
+  }
+  
+  @media screen and (max-width: 585px){
+    .thank-you-title {
+      font-size: 2.125rem; /* text-7xl */
+      font-weight: 700; /* font-bold */
+      margin-bottom: 1rem; /* mb-4 for the first title */
+    }
+
+    .thank-you-box {
+      width: 100vw;
+      height: 100vh;
+
+    }
+    .thank-you-text {
+      display: flex;
+      flex-direction: column;
+    }
+  
+  
+  }

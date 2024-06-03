@@ -1,0 +1,387 @@
+/* styles.css */
+
+/* Styles for the quiz creator container */
+.quiz-creator-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* bg-gray-100 with bg-opacity-50 */
+    z-index: 50; /* z-50 */
+  }
+  
+  /* Styles for the quiz creator content */
+  .quiz-creator-content {
+    padding: 1.5rem/* 24px */;
+    background-color: #ffffff; /* bg-white */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* shadow-md */
+    width: 900px; /* w-[900px] */
+    height: 640px; /* h-[640px] */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .quiz-creator-cl1{
+    margin-left: 1rem/* 16px */;
+    margin-right: 1rem/* 16px */;
+
+  }
+
+  .quiz-creator-cl2{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem/* 16px */;
+    margin-left: 1rem/* 16px */;
+    margin-right: 1rem/* 16px */;
+    gap: 2rem/* 32px */;
+
+  }
+
+  .quiz-creator-cl3{
+    display: flex;
+    align-items: center;
+    gap: 1rem/* 16px */;
+
+  }
+    .quiz-creator-cl4{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem/* 8px */;
+        position: relative;
+
+  }
+  
+  /* Styles for the question selector */
+  .question-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem/* 56px */;
+    height: 3.5rem/* 56px */;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-size: 1.25rem/* 20px */;
+    margin-left: 0.5rem/* 8px */;
+    box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.25); /* Customize shadow values */
+    background-color: white;
+    color: #9f9f9f;
+  }
+  
+  .question-selector.active{
+    background-color: white;
+    color: #9f9f9f;
+
+  }
+
+  .quiz-creator-cl5{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+
+
+  }
+    
+  /* Styles for the remove question button */
+  .remove-question-btn {
+    width: 1rem/* 16px */;
+    height: 1rem; /* h-4 */
+    cursor: pointer;
+    color: #d60000;
+  }
+  .quiz-creator-cl6{
+    font-size: 1.875rem/* 30px */;
+
+  }
+
+  
+  /* Styles for the add question button */
+  .add-question-btn {
+    width: 3.5rem/* 56px */;
+    height: 3.5rem; /* h-14 */
+    background-color: #ffffff; /* bg-white */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* shadow-2xl */
+    border-radius: 50%; /* rounded-full */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  /* Styles for the max question limit text */
+  .max-question-limit-text {
+    color: #9f9f9f; /* text-[#9F9F9F] */
+    font-size: 1.25rem; /* text-xl */
+  }
+  
+  /* Styles for the poll question input */
+  .poll-question-input {
+    color: #9f9f9f; /* text-[#9F9F9F] */
+    font-size: 1.25rem; /* text-xl */
+    border: 1px solid #cbd5e0; /* border-gray-300 */
+    border-radius: 0.5rem/* 8px */;
+    padding-left: 0.75rem/* 12px */;
+    padding-right: 0.75rem/* 12px */;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+
+    width: 100%; /* w-full */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* shadow-xl */
+    margin-bottom: 1rem; /* mb-4 */
+    font-weight: 500;
+  }
+  
+  .quiz-creator-cl7{
+    margin-bottom: 1.5rem/* 24px */;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem/* 32px */;
+
+  }
+
+  .option-type-label{
+    color: #9f9f9f; /* text-[#9F9F9F] */
+    font-weight: 500; /* font-medium */
+    font-size: 1.25rem; /* text-xl */
+  }
+  /* Styles for the option type radio label */
+  .option-type-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* space-x-2 */
+  }
+
+  .option-type-text{
+    color: #9f9f9f; /* text-[#9F9F9F] */
+    font-weight: 500; /* font-medium */
+    font-size: 1.25rem; /* text-xl */
+  }
+  
+  /* Styles for the option type radio */
+  .option-type-radio input[type="radio"] {
+    accent-color: black; /* style={{ accentColor: 'black' }} */
+    margin: 0; /* Resets margin */
+    cursor: pointer;
+  }
+  
+  /* Styles for the option type text */
+  .option-type-text {
+    color: #9f9f9f; /* text-[#9F9F9F] */
+    font-size: 1.5rem; /* text-xl */
+    font-weight: medium; /* font-medium */
+  }
+  
+  /* Styles for the option container */
+  .option-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem; /* mb-2 */
+    gap: 0.5rem; /* space-x-2 */
+    padding: 0.5rem/* 8px */;
+    border-radius: 0.25rem/* 4px */;
+
+  }
+
+  .quiz-creator-cl8{
+    display: flex;
+    justify-content: space-between;
+
+  }
+  
+  .quiz-creator-cl9{
+    margin-bottom: 1rem/* 16px */;
+
+  }
+  /* Styles for the option correct radio */
+  .option-correct {
+    accent-color: #60b84b; /* style={{ accentColor: '#60B84B' }} */
+  }
+  
+  /* Styles for the option text input */
+  .option-text-input {
+    display: flex;
+    padding-left: 0.75rem/* 12px */;
+    padding-right: 0.75rem/* 12px */;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+    width: 296px;
+    height: 3rem/* 48px */;
+    font-weight: 500;
+    font-size: 1.25rem/* 20px */;
+    border-radius: 0.75rem/* 12px */;
+    color: #ffffff;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15); /* shadow-2xl */
+  }
+  
+  /* Styles for the option image input */
+  .option-image-input {
+    display: flex;
+    padding-left: 0.75rem/* 12px */;
+    padding-right: 0.75rem/* 12px */;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+    width: 296px;
+    height: 3rem/* 48px */;
+    font-weight: 500;
+    font-size: 1.25rem/* 20px */;
+    border-radius: 0.75rem/* 12px */;
+    color: #ffffff;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15); /* shadow-2xl */  }
+  
+  /* Styles for the delete option button */
+  .delete-option-btn {
+    color: #d60000; /* text-red-500 */
+    cursor: pointer;
+    border: none;
+  }
+
+  .add-option-btn{
+    display: flex;
+    margin-left: 1.5rem/* 24px */;
+    justify-content: center;
+    width: 296px;
+    height: 3rem/* 48px */;
+    padding-left: 0.75rem/* 12px */;
+    padding-right: 0.75rem/* 12px */;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+    color: #9f9f9f;
+    background-color: #ffffff;
+    border-radius: 0.75rem/* 12px */;
+    font-size: 1.25rem/* 20px */;
+    font-weight: 500;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15); /* shadow-2xl */  
+    text-align: center;
+
+  }
+  
+  /* Styles for the timer container */
+  .timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem/* 16px */;
+    margin-top: 4rem/* 64px */;
+    margin-bottom: 1rem/* 16px */;
+  }
+  
+  /* Styles for the timer label */
+  .timer-label {
+    color: #9f9f9f; /* text-[#9F9F9F] */
+    font-size: 1.25rem; /* text-xl */
+    font-weight: medium; /* font-medium */
+  }
+  
+
+  .timer-choose{
+    width: 6rem/* 96px */;
+    height: 2.25rem/* 36px */;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15); /* shadow-2xl */  
+    padding-left: 0.75rem/* 12px */;
+    padding-right: 0.75rem/* 12px */;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+    border-radius: 0.75rem/* 12px */;
+
+  }
+
+  .timer-button{
+    width: 6rem/* 96px */;
+    height: 2.25rem/* 36px */;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15); /* shadow-2xl */  
+    padding-left: 0.75rem/* 12px */;
+    padding-right: 0.75rem/* 12px */;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+
+    border-radius: 0.75rem/* 12px */;
+
+  }
+
+  .timer-off {
+    background-color: #D60000;
+    color: white;
+  }
+  
+  /* Define the styles for when timer is not 'off' */
+  .timer-on {
+    background-color: white;
+    border: 1px solid #ccc;
+    color: #9F9F9F;
+  }
+
+  /* Define the styles for when timer is '10' */
+.timer-10 {
+    background-color: #D60000;
+    color: white;
+  }
+  
+  /* Define the styles for when timer is not '10' */
+  .timer-not-10 {
+    background-color: white;
+    border: 1px solid #ccc;
+    color: #9F9F9F;
+  }
+  
+/* Define styles for when timer is '5' */
+.timer-5 {
+    background-color: #D60000;
+    color: white;
+  }
+  
+  /* Define styles for when timer is not '5' */
+  .timer-not-5 {
+    background-color: white;
+    border: 1px solid #ccc;
+    color: #9F9F9F;
+  }
+  
+
+  .button-box{
+    justify-content: center;
+    display: flex;
+    gap: 6rem/* 96px */;
+    margin-top: 2rem/* 32px */;
+    
+  }
+
+  .cancel-button{
+    width: 18rem/* 288px */;
+    height: 3rem/* 48px */;
+    padding-left: 0.75rem/* 12px */;
+    padding-right: 0.75rem/* 12px */;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15); /* shadow-2xl */  
+    border-radius: 0.75rem/* 12px */;
+    font-weight: 700;
+    font-size: 1.25rem/* 20px */;
+    background-color: #ffffff;
+    color: #474444;
+  }
+
+  .create-quiz-button{
+    width: 18rem/* 288px */;
+    height: 3rem/* 48px */;
+    padding-left: 0.75rem/* 12px */;
+    padding-right: 0.75rem/* 12px */;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15); /* shadow-2xl */  
+    border-radius: 0.75rem/* 12px */;
+    font-weight: 700;
+    font-size: 1.25rem/* 20px */;
+    color: #ffffff;
+    background-color: #60B84B;
+
+  }
+
+  .error-message{
+    color: #D60000;
+    margin-top: 1rem/* 16px */;
+
+  }

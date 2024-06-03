@@ -2,15 +2,24 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { QuizContext } from '../../context/QuizContext';
 import { MdOutlineRemoveRedEye } from "react-icons/md";
+import Shimmer from '../Shimmer/Shimmer';
 import './Dashboard.css'
 
 const Dashboard = () => {
     const { finalQuizData, refreshData } = useContext(QuizContext);
     const [quizData, setQuizData] = useState([]);
+    const [loading , setLoading] = useState(true)
 
     useEffect(() => {
-        refreshData(); // Ensure data is up-to-date when component mounts
+      const fetchData = async () => {
+        setLoading(true);
+        await refreshData();
+        setLoading(false);
+      };
+  
+      fetchData();
     }, []);
+  
 
     useEffect(() => {
         setQuizData(finalQuizData);
@@ -36,6 +45,9 @@ const Dashboard = () => {
         const date = new Date(dateString);
         const options = { day: '2-digit', month: 'short', year: 'numeric' };
         return date.toLocaleDateString('en-GB', options);
+    }
+    if(loading){
+      return <Shimmer/>
     }
 
     return (

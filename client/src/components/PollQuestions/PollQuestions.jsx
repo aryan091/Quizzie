@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import ShimmerQuizQuestion from '../ShimmerQuizQuestion/ShimmerQuizQuestion';
 import PollCompletion from '../PollCompletion/PollCompletion';
 import axios from 'axios';
 import './PollQuestions.css'
@@ -12,18 +13,24 @@ const PollQuestion = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const [pollCompleted, setPollCompleted] = useState(false);
     const [attemptedQuestions, setAttemptedQuestions] = useState(0);
+    const [loading, setLoading] = useState(true);
+
 
     const questionResults = useRef([]);
 
     useEffect(() => {
         const fetchPollData = async () => {
             try {
+              setLoading(true)
+
                 const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/poll/view-poll/${pollId}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
                 setPollData(data.message);
+                setLoading(false)
+
             } catch (error) {
                 console.error('Error fetching poll data:', error);
             }
@@ -33,7 +40,6 @@ const PollQuestion = () => {
     }, []);
 
     useEffect(() => {
-        console.log("Running incrementPollImpression effect");
     
         const incrementPollImpression = async () => {
             try {
@@ -123,6 +129,11 @@ const PollQuestion = () => {
     console.log('Question Results:', questionResults.current);
 
     const currentQuestion = pollData?.questions[currentQuestionIndex];
+
+    if(loading)
+      {
+        return <ShimmerQuizQuestion/>
+      }
 
     return (
         <div className="poll-question-container-wrapper ">

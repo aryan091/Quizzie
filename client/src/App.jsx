@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route , useNavigate } from 'react-router-dom';
 import Home from './components/Home/Home';
 import MainLayout from './components/MainLayout/MainLayout';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -9,13 +9,16 @@ import { QuizProvider } from './context/QuizContext'
 import QuizAnalysis from './QuizAnalysis/QuizAnalysis';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import NotFound from './components/NotFound/NotFound';
+import { UserContext , UserContextProvider} from './context/UserContext';
 import { ToastContainer , Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './App.css';
 
 function App() {
+
   return (
+    <UserContextProvider>
     <QuizProvider>
 
     <Router>
@@ -50,6 +53,7 @@ function App() {
 
     </Router>
             </QuizProvider>
+            </UserContextProvider>
 
   );
 }

@@ -6,7 +6,7 @@ import { HiMiniShare } from "react-icons/hi2";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { BiEdit } from "react-icons/bi";
 import { toast } from 'react-toastify';
-
+import ShimmerQuizAnalysis from "../ShimmerQuizAnalysis/ShimmerQuizAnalysis";
 
 import DeleteDialog from "../DeleteDailog/DeleteDailog"; // Ensure the correct path
 import './QuizAnalysisReport.css'
@@ -18,10 +18,19 @@ const QuizAnalysisReport = () => {
   const [quizData, setQuizData] = useState([]);
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [selectedQuiz, setSelectedQuiz] = useState(null);
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
-    refreshData(); 
+    const fetchData = async () => {
+      setLoading(true);
+      await refreshData();
+      setLoading(false);
+    };
+
+    fetchData();
   }, []);
+
 
   useEffect(() => {
     setQuizData(finalQuizData);
@@ -81,6 +90,10 @@ const QuizAnalysisReport = () => {
 
   };
   
+  if(loading)
+    {
+      return <ShimmerQuizAnalysis/>
+    }
 
   return (
     <div className="quiz-analysis-container ">

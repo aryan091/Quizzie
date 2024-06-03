@@ -5,8 +5,9 @@ import { toast } from 'react-toastify';
 import './Login.css'
 const Login = (props) => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState({ email: '', password: ''  });
   const [errors, setErrors] = useState({ email: '', password: '' });
+  const [error , setError ] = useState('')
   const [loading, setLoading] = useState(false); // Loading state
 
   const [statusMessage, setStatusMessage] = useState('');
@@ -28,7 +29,7 @@ const Login = (props) => {
       navigate('/app/dashboard');
     } catch (error) {
       console.log(error);
-      setErrors(error.response.data.message);
+      setError(error.response.data.message);
     } finally {
       setLoading(false); // Set loading back to false when API call completes
     }
@@ -54,38 +55,37 @@ const Login = (props) => {
     }
     setErrors(errors);
 
-    if (valid) {
       handleLogin();
-    }
+    
   };
 
   return (
     <div className="login-modal-container">
       <p className="modal-text">QUIZZIE</p>
       <div className="login-button-container">
-        <button onClick={props.clickSignUp} className="sign-up-button ">
+        <button onClick={props.clickSignUp} className="sign-up-button">
           Sign Up
         </button>
-        <button onClick={props.clickLogin} className="login-button ">
+        <button onClick={props.clickLogin} className="login-button">
           Login
         </button>
       </div>
-  
-      <div className="login-form-container ">
-        <div className="form-group ">
-          <div className="form-row ">
+
+      <div className="login-form-container">
+        <div className="form-group">
+          <div className="form-row">
             <label className="form-label">Email</label>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
-              className="form-input "
+              className="form-input"
             />
           </div>
         </div>
-  
-        <div className="form-group ">
+
+        <div className="form-group">
           <div className="form-row">
             <label className="form-label">Password</label>
             <input
@@ -93,19 +93,22 @@ const Login = (props) => {
               name="password"
               value={form.password}
               onChange={handleChange}
-              className="form-input "
+              className="form-input"
             />
           </div>
+          {error && <p className="error-message">{error}</p>}
+
         </div>
-  
-        <div className="submit-button-container  ">
+
+
+        <div className="submit-button-container">
           <div onClick={handleSubmit} className="submit-button">
             Login
           </div>
         </div>
-        {errors && <p className="error-message">{errors}</p>}
 
       </div>
+
     </div>
   );
   };

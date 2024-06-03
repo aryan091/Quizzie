@@ -1,7 +1,11 @@
-import React from 'react';
+import React , {useContext} from  'react';
 import { Link , useNavigate } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
 import './Sidebar.css';
 const Sidebar = ({ onOpenModal }) => {
+
+    const { setUsername, setId, setIsUserLoggedIn } = useContext(UserContext);
+
   const navigate = useNavigate();
   return (
     <div className="sidebar-container ">
@@ -25,7 +29,10 @@ const Sidebar = ({ onOpenModal }) => {
         <div
             className="logout-button "
             onClick={() => {
-                localStorage.clear();
+                localStorage.removeItem('token')
+                setIsUserLoggedIn(false)
+                setId(null)
+                setUsername(null)
                 navigate('/');
             }}
         >

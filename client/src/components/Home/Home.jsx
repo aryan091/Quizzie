@@ -53,11 +53,7 @@ const Home = () => {
     setLoading(false)
   }, [isUserLoggedIn, navigate]);
 
-  if(loading){
-    return (
 
-    )
-  }
 
   return (
     <div>

@@ -112,10 +112,10 @@ const PollQuestion = () => {
         setPollCompleted(true);
     };
 
-    if (!pollData) {
-        return <div>Loading...</div>;
-    }
-
+if(loading)
+  {
+    return <ShimmerQuizQuestion/>
+  }
     if (pollCompleted) {
         return (
             <PollCompletion

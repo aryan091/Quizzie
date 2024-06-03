@@ -59,3 +59,43 @@
       height: 100vh;
     }
   }
+
+  /* Shimmer effect */
+.shimmer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.shimmer-container > div {
+  margin-bottom: 20px;
+  height: 20px;
+  background: linear-gradient(to right, #f6f7f8 4%, #eaebed 25%, #f6f7f8 36%);
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.shimmer-title {
+  width: 200px;
+}
+
+.shimmer-trophy {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.shimmer-score {
+  width: 150px;
+}
+
+@keyframes shimmer {
+  0% {
+      background-position: -1000px 0;
+  }
+  100% {
+      background-position: 1000px 0;
+  }
+}

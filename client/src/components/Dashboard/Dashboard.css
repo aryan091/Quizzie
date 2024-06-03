@@ -148,7 +148,6 @@
 .quiz-impressions-dash{
     display: flex;
     gap: 0.25rem/* 4px */;
-    align-items: center;
 
 }
 

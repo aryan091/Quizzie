@@ -57,14 +57,14 @@ const Home = () => {
     getUser();
   }, [isUserLoggedIn, navigate, setUsername, setId, setIsUserLoggedIn]);
 
-  if (loading) {
-    return <Shimmer/>; // Render nothing when loading
-  }
-
   return (
     <div className='login-sign-up-container'>
-      {isSignUp && <SignUp handleSignUpSuccess={handleSignUpSuccess} clickLogin={clickLogin} clickSignUp={clickSignUp} />}
-      {isLogin && <Login clickLogin={clickLogin} clickSignUp={clickSignUp} />}
+      {loading ? <Shimmer /> : (
+        <>
+          {isSignUp && <SignUp handleSignUpSuccess={handleSignUpSuccess} clickLogin={clickLogin} clickSignUp={clickSignUp} />}
+          {isLogin && <Login clickLogin={clickLogin} clickSignUp={clickSignUp} />}
+        </>
+      )}
     </div>
   );
 };

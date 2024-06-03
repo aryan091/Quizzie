@@ -27,7 +27,7 @@ const Login = (props) => {
       // Navigate to the dashboard
       navigate('/app/dashboard');
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data.message);
       setErrors(error.response.data.message);
     } finally {
       setLoading(false); // Set loading back to false when API call completes

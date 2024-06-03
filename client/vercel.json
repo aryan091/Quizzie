@@ -1,14 +1,5 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "src/**/*",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "build"
-        }
-      }
-    ],
+
     "rewrites": [
       {
         "source": "/app/:path*",
@@ -27,5 +18,6 @@
         "destination": "/index.html"
       }
     ]
+
   }
   

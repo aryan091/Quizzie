@@ -9,7 +9,7 @@ import './Home.css';
 const Home = () => {
   const [isSignUp, setIsSignUp] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
-  const[loading , setLoading] = useState(false)
+  const[loading , setLoading] = useState(true)
   
   const { setUsername, setId, setIsUserLoggedIn, isUserLoggedIn } = useContext(UserContext);
   const navigate = useNavigate();

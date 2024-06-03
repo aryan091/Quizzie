@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
+import ShimmerQuizQuestion from "../ShimmerQuizQuestion/ShimmerQuizQuestion";
 import QuizCompletion from "../QuizCompletion/QuizCompletion";
 import axios from "axios";
 import "./QuizQuestion.css";
@@ -14,12 +15,15 @@ const QuizQuestion = () => {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [attemptedQuestions, setAttemptedQuestions] = useState(0);
+  const [loading, setLoading] = useState(true);
+
 
   const questionResults = useRef([]);
 
   useEffect(() => {
     const fetchQuizData = async () => {
       try {
+        setLoading(true)
         const response = await fetch(
           `${import.meta.env.VITE_BACKEND_URL}/quiz/view-quiz/${quizId}`
         );
@@ -33,6 +37,7 @@ const QuizQuestion = () => {
             ? 0
             : Number(data.message.questions[0].timer);
         setTimer(initialTimer);
+        setLoading(false)
       } catch (error) {
         console.error("Error fetching quiz data:", error);
       }
@@ -43,7 +48,6 @@ const QuizQuestion = () => {
   }, [quizId]);
 
   useEffect(() => {
-    console.log("Running incrementQuizImpression effect");
 
     const incrementQuizImpression = async () => {
       try {
@@ -176,10 +180,10 @@ const QuizQuestion = () => {
     return `${formatNumber(minutes)}:${formatNumber(seconds)}s`;
   };
 
-  if (!quizData) {
-    return <div>Loading...</div>;
+if(loading)
+  {
+    return <ShimmerQuizQuestion/>
   }
-
   if (quizCompleted) {
     return (
       <QuizCompletion

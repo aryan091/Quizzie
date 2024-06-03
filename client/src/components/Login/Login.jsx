@@ -2,14 +2,28 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { toast } from 'react-toastify';
-import './Login.css'
+import { PropagateLoader } from 'react-spinners'; // Import the spinner component
+import './Login.css';
+
+const loadingSpinnerStyles = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100vw",
+  height: "100vh",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  zIndex: 9999,
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+};
+
 const Login = (props) => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: '', password: ''  });
+  const [form, setForm] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({ email: '', password: '' });
-  const [error , setError ] = useState('')
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false); // Loading state
-
   const [statusMessage, setStatusMessage] = useState('');
 
   const handleLogin = async () => {
@@ -55,8 +69,7 @@ const Login = (props) => {
     }
     setErrors(errors);
 
-      handleLogin();
-    
+    handleLogin();
   };
 
   return (
@@ -97,20 +110,22 @@ const Login = (props) => {
             />
           </div>
           {error && <p className="error-message">{error}</p>}
-
         </div>
-
 
         <div className="submit-button-container">
           <div onClick={handleSubmit} className="submit-button">
             Login
           </div>
         </div>
-
       </div>
-
+      
+      {loading && (
+        <div style={loadingSpinnerStyles}>
+          <PropagateLoader color="#ffffff" />
+        </div>
+      )}
     </div>
   );
-  };
+};
 
 export default Login;

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import { PropagateLoader } from 'react-spinners'; // Import the spinner component
 
 import "./SignUp.css";
+
 const SignUp = (props) => {
   const [form, setForm] = useState({
     name: "",
@@ -20,6 +22,20 @@ const SignUp = (props) => {
 
   const [loading, setLoading] = useState(false); // Loading state
   const [statusMessage, setStatusMessage] = useState("");
+
+  const loadingSpinnerStyles = {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 9999,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  };
+  
 
   const handleRegister = async () => {
     setLoading(true);
@@ -185,6 +201,11 @@ const SignUp = (props) => {
         {statusMessage && (
           <p className=" status-message ">{statusMessage}</p>
         )}
+        {loading && (
+        <div style={loadingSpinnerStyles}>
+        <PropagateLoader color="#ffffff" />
+      </div>
+      )}
       </div>
     </div>
   );

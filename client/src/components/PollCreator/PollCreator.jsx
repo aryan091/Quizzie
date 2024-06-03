@@ -5,6 +5,8 @@ import { MdOutlineAdd } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { toast } from 'react-toastify';
+import { PropagateLoader } from 'react-spinners'; // Import the spinner component
+
 
 import './PollCreator.css'
 
@@ -21,6 +23,20 @@ const PollCreator = ({ setIsPollModalOpen , setPublishedModal , onClose, pollNam
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [optionType, setOptionType] = useState('text'); 
   const [error, setError] = useState(''); 
+  const [loading, setLoading] = useState(false); // Loading state
+  const loadingSpinnerStyles = {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 9999,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  };
+
 
   const navigate = useNavigate();
 
@@ -128,6 +144,7 @@ const PollCreator = ({ setIsPollModalOpen , setPublishedModal , onClose, pollNam
     setError('');
     console.log('Poll Created:', { pollName, questions });
     try {
+      setLoading(true)
       const token = localStorage.getItem("token");
       axios.defaults.headers.common["Authorization"] = token;
 
@@ -147,6 +164,7 @@ const PollCreator = ({ setIsPollModalOpen , setPublishedModal , onClose, pollNam
         console.log("Poll Created:", response.data);
         setPollId(response.data.data._id);
       }
+      setLoading(false)
     } catch (error) {
       console.log(error);
       setError("An error occurred while saving the poll. Please try again.");
@@ -312,6 +330,11 @@ const PollCreator = ({ setIsPollModalOpen , setPublishedModal , onClose, pollNam
         </div>
   
         {error && <p className="error-message mt-4 text-red-500">{error}</p>}
+        {loading && (
+        <div style={loadingSpinnerStyles}>
+          <PropagateLoader color="#ffffff" />
+        </div>
+      )}
       </div>
     </div>
   );

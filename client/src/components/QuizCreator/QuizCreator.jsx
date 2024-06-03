@@ -5,6 +5,7 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import { MdOutlineAdd } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { toast } from 'react-toastify';
+import { PropagateLoader } from 'react-spinners'; // Import the spinner component
 
 import './QuizCreator.css'
 
@@ -23,6 +24,21 @@ const QuizCreator = ({ setIsQNAModalOpen, setPublishedModal, onClose, quizName, 
   const [optionType, setOptionType] = useState('text'); // Single state for option type
   const [timer, setTimer] = useState('off'); // Single state for timer
   const [error, setError] = useState(''); // State for error message
+  const [loading, setLoading] = useState(false); // Loading state
+  const loadingSpinnerStyles = {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 9999,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  };
+  
+
 
   console.log('state :', state);
 
@@ -160,6 +176,7 @@ const QuizCreator = ({ setIsQNAModalOpen, setPublishedModal, onClose, quizName, 
     setError('');
     console.log('Quiz Created:', { quizName, questions });
     try {
+      setLoading(true)
       const token = localStorage.getItem('token');
       axios.defaults.headers.common['Authorization'] = token;
 
@@ -181,6 +198,7 @@ const QuizCreator = ({ setIsQNAModalOpen, setPublishedModal, onClose, quizName, 
         console.log('Quiz Created:', response.data);
         setQuizId(response.data.data._id);
       }
+      setLoading(false)
     } catch (error) {
       console.log(error);
       setError('An error occurred while saving the quiz. Please try again.');
@@ -399,7 +417,11 @@ const QuizCreator = ({ setIsQNAModalOpen, setPublishedModal, onClose, quizName, 
           </button>
         </div>
         {error && <p className="error-message">{error}</p>}
-
+        {loading && (
+        <div style={loadingSpinnerStyles}>
+          <PropagateLoader color="#ffffff" />
+        </div>
+      )}
         </div>
        </div>
     </div>

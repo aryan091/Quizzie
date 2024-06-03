@@ -51,8 +51,8 @@ const MainLayout = () => {
 
 
 
-  const publishedLinkQA = `http://localhost:5173/api/v1/quiz/view-quiz/${quizId}`;
-  const publishedLinkPoll = `http://localhost:5173/api/v1/poll/view-poll/${pollId}`;
+  const publishedLinkQA = `https://aryandaftari7-gmail-com-cuvette-final-evaluation-may.vercel.app/api/v1/quiz/view-quiz/${quizId}`;
+  const publishedLinkPoll = `https://aryandaftari7-gmail-com-cuvette-final-evaluation-may.vercel.app/api/v1/poll/view-poll/${pollId}`;
 
   const handleOpenModal = () => {
     setIsModalOpen(true);

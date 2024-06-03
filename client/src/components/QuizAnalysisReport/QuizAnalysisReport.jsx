@@ -37,8 +37,8 @@ const QuizAnalysisReport = () => {
 
   const handleCopyLink = (quiz) => {
     const link = quiz.isQuiz
-      ? `http://localhost:5173/api/v1/quiz/view-quiz/${quiz._id}`
-      : `http://localhost:5173/api/v1/poll/view-poll/${quiz._id}`;
+      ? `https://aryandaftari7-gmail-com-cuvette-final-evaluation-may.vercel.app/api/v1/quiz/view-quiz/${quiz._id}`
+      : `https://aryandaftari7-gmail-com-cuvette-final-evaluation-may.vercel.app/api/v1/poll/view-poll/${quiz._id}`;
 
     navigator.clipboard.writeText(link).then(() => {
       toast.success(`Link copied to clipboard!`);

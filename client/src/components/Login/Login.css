@@ -106,4 +106,11 @@
     color: #474444;
     font-size: 1.25rem;
     font: bold;
+    cursor: pointer;
 }
+
+.error-message{
+    color: #D60000;
+    margin-top: 1rem/* 16px */;
+
+  }

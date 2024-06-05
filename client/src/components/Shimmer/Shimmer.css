@@ -30,8 +30,8 @@
   
   .shimmer-trending-quizzes-section {
     max-width: 860px;
-    margin-top: 6rem;
-    margin-left: 3rem;
+    margin-top: 6rem/* 96px */;
+    margin-left: 3rem/* 48px */;
   }
   
   .shimmer-trending-title {
@@ -48,8 +48,8 @@
   
   .shimmer-trending-list {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 1.5rem/* 16px */;
   }
   
   .shimmer-quiz-card {

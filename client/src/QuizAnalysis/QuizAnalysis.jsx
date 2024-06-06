@@ -5,6 +5,21 @@ import PollAnalysis from '../components/PollAnalysis/PollAnalysis';
 import { QuizContext } from "../context/QuizContext";
 import './QuizAnalysis.css'
 const QuizAnalysis = ({  }) => {
+
+const { refreshData } = useContext(QuizContext);
+const [loading , setLoading] = useState(true)
+
+useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      await refreshData();
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+
   const { finalQuizData } = useContext(QuizContext);
   const {id} = useParams()
     const [quiz , setQuiz] = useState(null)
